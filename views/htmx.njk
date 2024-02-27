@@ -8,28 +8,32 @@
   <style>
     :root{
       font-family: monospace;
-      font-size: 32px;
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
   <h1>HTMX</h1>
 
+  <div id="respuesta">Aqui aparecerán las respuestas del servidor</div>
   <div hx-trigger="load" hx-get="/hola"></div>
 
   <div id="mensajes"></div>
-
   <div 
-  hx-trigger="load" 
+  hx-trigger="every 0.2s" 
   hx-get="/mensajes/html" 
   hx-target="#mensajes" 
   hx-swap="innerHTML">
   </div>
 
-  <form hx-post="/mensajes">
+  <form hx-post="/mensajes" hx-target="#respuesta">
     <input type="text" name="nombre" id="nombre">
     <input type="text" name="mensaje" id="mensaje">
     <button>Enviar</button>
+  </form>
+
+  <form hx-get="/mensajes/reset" hx-target="#respuesta">
+    <button>Reset</button>
   </form>
 </body>
 </html>
