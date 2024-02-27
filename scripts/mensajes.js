@@ -24,8 +24,18 @@ function reset() {
   fs.writeFileSync("./db/mensajes.json", "[]");
 }
 
+function createList() {
+  const lista = getAll();
+  let html = ""
+  lista.forEach((item)=>{
+    html += `<p>${item.autor}: ${item.mensaje}</p>`
+  })
+  return html
+}
+
 module.exports = {
   getAll,
   add,
   reset,
+  createList
 };

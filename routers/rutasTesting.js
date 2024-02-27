@@ -10,4 +10,8 @@ routers.get("/testnjk", (req, res) => {
   res.render("test", { mensaje: "Hola mundo", lista: lista });
 });
 
+routers.get("/htmx", (req, res) => {
+  res.render("htmx")
+})
+
 module.exports = routers;

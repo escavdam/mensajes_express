@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <title>HTMX</title>
+  <style>
+    :root{
+      font-family: monospace;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTMX</h1>
+
+  <div hx-trigger="load" hx-get="/hola"></div>
+
+  <div id="mensajes"></div>
+
+  <div 
+  hx-trigger="load" 
+  hx-get="/mensajes/html" 
+  hx-target="#mensajes" 
+  hx-swap="innerHTML">
+  </div>
+
+  <form hx-post="/mensajes">
+    <input type="text" name="nombre" id="nombre">
+    <input type="text" name="mensaje" id="mensaje">
+    <button>Enviar</button>
+  </form>
+</body>
+</html>
