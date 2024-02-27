@@ -18,14 +18,8 @@
   <div id="respuesta">Aqui aparecerán las respuestas del servidor</div>
   <div hx-trigger="load" hx-get="/hola"></div>
 
-  <div id="mensajes"></div>
-  <div 
-  hx-trigger="every 0.2s" 
-  hx-get="/mensajes/html" 
-  hx-target="#mensajes" 
-  hx-swap="innerHTML">
-  </div>
-
+  <div id="mensajes" hx-trigger="every 0.2s" hx-get="/mensajes/html"></div>
+  
   <form hx-post="/mensajes" hx-target="#respuesta">
     <input type="text" name="nombre" id="nombre">
     <input type="text" name="mensaje" id="mensaje">
@@ -35,5 +29,6 @@
   <form hx-get="/mensajes/reset" hx-target="#respuesta">
     <button>Reset</button>
   </form>
+
 </body>
 </html>
